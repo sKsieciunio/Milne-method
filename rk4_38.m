@@ -1,9 +1,25 @@
 function [x_vec, y] = rk4_38(f, x_vec, y0)
-% x - nodes for first 4 values
+% Projekt 2, zadanie 39
+% Hubert Błonowski, 333181
+%
+% Funkcja za pomocą metody Rungego-Kutty 4 rzędu, przybliża rozwiązanie 
+% układu równań różniczkowych pierwszego stopnia f, w punktach x_vec
+% WEJSCIE
+%   f     - uchwyt do układu równań różniczkowych pierwszego stopnia
+%   x_vec - kolejne węzły dla metody RK4 (długość kroku musi być stała)
+%   y0    - warunki początkowe
+% WYJSCIE
+%   x_vec - to samo co na wejściu
+%   y     - wektor przybliżonych rozwiązań w punktach x_vec
 
-y = y0;
-% step size must be consistant
+% sprawdzenie czy wartości kroku są równe dla każdego punktu
+h = diff(x_vec);
+assert(all(abs(h - h(1)) < 1e-10));
+
 h = x_vec(2) - x_vec(1);
+
+y = zeros(length(x_vec), length(y0));
+y(1, :) = y0;
 
 for i = 1:length(x_vec)-1
     k1 = h * f(x_vec(i), y(i,:)');

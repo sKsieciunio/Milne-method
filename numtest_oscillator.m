@@ -11,7 +11,6 @@ N = [40, 80];
 
 exact_solution = @(x) cos(sqrt(k) .* x);
 
-% Define an array of blue shades (RGB values)
 blueColors = [
     0.4, 0.8, 1; % Medium Blue
     0.0, 0.2, 0.7; % Dark Blue

@@ -10,7 +10,6 @@ N = [100 200 400];
 exact_solution = @(x) exp(-x);
 [x, ode45_y] = ode45(@(x, y) get_dydx(x, y, a, b), [x0, xN], y0);
 
-% Define an array of blue shades (RGB values)
 blueColors = [
     0.4, 0.8, 1; % Medium Blue
     0.1, 0.3, 0.9; % Dark Blue
